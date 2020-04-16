@@ -72,10 +72,10 @@ public class WhitelistSheet extends BaseBottomSheet {
         selectExtension.setSelectionListener((item, selected) -> {
             if (whitelistManager.isWhitelisted(item.getApp().getPackageName())) {
                 whitelistManager.removeFromWhitelist(item.getApp().getPackageName());
-                Log.d("Whitelisted : %s", item.getApp().getDisplayName());
+                Log.d("Removed from whitelist: %s", item.getApp().getDisplayName());
             } else {
                 whitelistManager.addToWhitelist(item.getApp().getPackageName());
-                Log.d("Blacklisted : %s", item.getApp().getDisplayName());
+                Log.d("Whitelisted: %s", item.getApp().getDisplayName());
             }
         });
 
