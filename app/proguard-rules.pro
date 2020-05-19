@@ -1,26 +1,2 @@
-# Add project specific ProGuard rules here.
-# By default, the flags in this file are appended to flags specified
-# in F:\android-sdk/tools/proguard/proguard-android.txt
-# You can edit the include path and order by changing the proguardFiles
-# directive in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
-
-# Add any project specific keep options here:
-
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
-
--dontwarn javax.annotation.**
--keep public interface android.content.pm.IPackageInstallObserver { *; }
--keep public interface android.content.pm.IPackageDeleteObserver { *; }
--keep class android.content.pm.IPackageInstallObserver$Stub { *; }
--keep public class com.dragons.aurora.InstallerPrivileged$* { *; }
-
--renamesourcefileattribute SourceFile
--repackageclasses
+×i®ˆŞrÛ)yÈŸ‰Ãë kš­Úî•ë!z·É×Ÿjém¶Ÿ•¨,Š{aŠÇâ•æ«yªizw^vÚ•¨,²—œ‰øv)Åjwk¢'lvOí¢‰lşšè‚æ«wúk¢š­Ö§vº"vÜmb‹œjwŠÛaz)Ü–ç^¥«ajwh­×«o'!jx"azšè‚æ«tX¥zÇb­ç-Š÷¢»¢•Ø+iÙ^Šæ¢·zÖ¢–Ëzm§ÿİz÷¥¢—«jwk¢'\¢oàº'^ı×¯zZ)Šx?¶Š%³úk¢š­ØmšPu©ò¦º#yËl¥ç"~'$yêh¦Ø¨È^­âÊ‹«¦º#yËn±ëyµb{"¶Rºw(šg§¶Ø^~‰e£§©İ²—œ‰ü­…çî–\ª¹©b~'rV¬²v¦zÚ-…âZ½¤œ®*mŠ{^­öœyÉZ²Éz—%jË&zfŞ®Ç%jË©Éè~6¯jÇ+Š›b×«}§~Šğy»â{
+nnXœv‰íÁªç«ÚÅ©ç¢Ö­Š‰äyêi¹¹br)íz·Úqæ§vº"uÊ'µéí¦biÉâ'²Ö¥”æìz»Ş®G¦››–'"×«}§jwk¢'\¢{^Úf öœ‘¨é^µã›±êïz¹z—%jËÚè‰×(×§¶™ˆ=§$jˆËZ–S›±êïz´­¹¹zšnnXœrV¬±Ê&v¶ ¢{ºº+h‰ìµ©ez³ëŠø¥z­éÚ™ë(º·~)^jÛk‰»­y*.­Ç…ŠW«z–œ‘¨rV¬±ë
