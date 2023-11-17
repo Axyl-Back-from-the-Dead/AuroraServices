@@ -55,7 +55,8 @@ else
   then
       SYSTEM="/mnt/system/system"
   else
-      echo -n -e "ui_print Unable to access system partition. You may need to mount it before install.\n" > /proc/self/fd/$2
+      echo -n -e "ui_print Unable to determine install path.\n" > /proc/self/fd/$2
+      echo -n -e 'ui_print Depending on your system you may need to either mount or unmount the system partition before installation.\n' > /proc/self/fd/$2
       exit 23
   fi
 fi
