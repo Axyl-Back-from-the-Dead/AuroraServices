@@ -43,8 +43,7 @@ mount /system
 if [ "$?" -eq 0 ]
 then
     # Modern devices use the system partition as root ("/").
-    SYSTEM_AS_ROOT=`getprop ro.build.system_root_image`
-    if [ "$SYSTEM_AS_ROOT" == "true" ]
+    if [ -d "/system/system" ]
     then
       SYSTEM="/system/system"
     fi
