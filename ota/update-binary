@@ -40,11 +40,25 @@ then
 fi
 
 mount /system
-# Modern devices use the system partition as root ("/").
-SYSTEM_AS_ROOT=`getprop ro.build.system_root_image`
-if [ "$SYSTEM_AS_ROOT" == "true" ]
+if [ "$?" -eq 0 ]
 then
-  SYSTEM="/system/system"
+    # Modern devices use the system partition as root ("/").
+    SYSTEM_AS_ROOT=`getprop ro.build.system_root_image`
+    if [ "$SYSTEM_AS_ROOT" == "true" ]
+    then
+      SYSTEM="/system/system"
+    fi
+else
+  # Some recoveries (e.g. Lineage) are only able to mount the system partition
+  # on /mnt/system in read-only mode. System needs to be mounted before install.
+  mount -o rw,remount /mnt/system
+  if [ "$?" -eq 0 ]
+  then
+      SYSTEM="/mnt/system/system"
+  else
+      echo -n -e "ui_print Unable to access system partition. You may need to mount it before install.\n" > /proc/self/fd/$2
+      exit 23
+  fi
 fi
 
 echo -n -e "ui_print Installing at ${SYSTEM}...\n" > /proc/self/fd/$2
@@ -82,7 +96,12 @@ then
 	chmod 644 ${PERMISSIONS_DIR}/${PERMISSIONS_XML}
 fi
 
-umount /system
+if [ "$SYSTEM" == "/mnt/system/system" ]
+then
+  mount -o ro,remount /mnt/system
+else
+  umount /system
+fi
 
 echo -n -e 'ui_print done\n' > /proc/self/fd/$2
 echo -n -e 'ui_print\n' > /proc/self/fd/$2
